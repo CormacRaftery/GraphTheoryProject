@@ -15,3 +15,8 @@ All of the code used in this project is either taken from the coding videos prov
 This project required a lot of research as I have not much experience coding in python prior to this project.
 I have watched all the videos provided by the lecture to teach me the basics and I have also looked at some students projects from last year which were written in the GO programming language. 
 This was mostly for inspiration on how to improve the project and to help avoid errors that they might have encountered.
+
+# problems encountered
+
+One problem I have encountered is that the user has to run the programme every time they make a change so I have added a while loop to keep the programme running. 
+Another problem is that the nfa's are limited and need more special characters which can be easily added through adding more "elif's" to the shunt algorithm.
