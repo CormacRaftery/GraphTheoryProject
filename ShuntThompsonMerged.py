@@ -3,7 +3,7 @@
 
 def shunt(infix):
 
-    specials = {'*': 50, '.': 40, '|': 30}
+    specials = {'*': 50, '.': 40, '|': 30, '?':20, '+':10}
 
     pofix = ""
     stack = ""
@@ -26,9 +26,6 @@ def shunt(infix):
         pofix,stack = pofix + stack[-1],stack[:-1]
 
     return pofix
-
-#Thompson's construction
-#Cormac Raftery
 
 class state:
     label = None
@@ -80,8 +77,33 @@ def compile(pofix):
 
             nfa1.accept.edge1 = nfa1.initial
             nfa1.accept.edge2 = accept
-            
+
             newnfa = nfa(initial, accept)
+            nfastack.append(newnfa)
+        elif c == "?":
+            nfa1 = nfastack.pop()
+
+            initial = state()
+            accept = state()
+
+            nfa1.accept.edge1= initial
+
+            newnfa = nfa(initial, accept)
+            nfastack.append(newnfa)
+
+        elif c == "+":
+            nfa1 = nfastack.pop()
+
+            initial = state()
+            accept = state()
+
+            initial.edge1 = nfa1.initial
+            initial.edge2 = accept
+
+            nfa1.accept.edge1 = nfa1.initial
+            nfa1.accept.edge2 = accept
+
+            newnfa= nfa(nfa1.initial,accept)
             nfastack.append(newnfa)
         else:
             accept = state()
