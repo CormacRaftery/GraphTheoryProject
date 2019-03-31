@@ -19,4 +19,4 @@ This was mostly for inspiration on how to improve the project and to help avoid 
 # problems encountered
 
 One problem I have encountered is that the user has to run the programme every time they make a change so I have added a while loop to keep the programme running. 
-Another problem is that the nfa's are limited and need more special characters which can be easily added through adding more "elif's" to the shunt algorithm.
+Another problem is that the nfa's are limited and need more special characters such as the '+' and the '?' which can be added through adding more "elif's".
