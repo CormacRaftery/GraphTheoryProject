@@ -20,3 +20,7 @@ This was mostly for inspiration on how to improve the project and to help avoid 
 
 One problem I have encountered is that the user has to run the programme every time they make a change so I have added a while loop to keep the programme running. 
 Another problem is that the nfa's are limited and need more special characters such as the '+' and the '?' which can be added through adding more "elif's".
+
+# How to run
+
+how to run the programme is quite simple aslong as you have python installed just navigate to the folder in a command line interface and enter "python ShuntThompsonMerged.py". From there you will be presented with options.
