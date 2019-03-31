@@ -129,6 +129,35 @@ def match(infix,string):
 infixes = ["a.b.c*","a.(b|d).c*","(a.(b|d))*","a.(b.b)*.c"]
 strings = ["","abc","abbc","abcc","abad","abbbc"]
 
-for i in infixes:
-    for s in strings:
-        print(match(i,s),i,s)
+running = True
+
+while running:
+    option = input("Pick an option: 1. Run data 2. Create new infixes 3. Create new strings ")
+    print(option)
+    if option == '1':
+        for i in infixes:
+            for s in strings:
+                print(match(i,s),i,s)
+    elif option == '2':
+        infixes=[]
+        creatingInfixes = True
+        while creatingInfixes:
+            print("Current infixes are: ",infixes)
+            infixesOption= input("Press -1 to stop adding infixes ")
+            if infixesOption== '-1':
+                creatingInfixes=False
+            else:
+                infixes.append(infixesOption)
+    elif option == '3':
+        strings=[]
+        creatingStrings = True
+        while creatingStrings:
+            print("Current strings are:",strings)
+            stringsOption= input("Press -1 to stop adding strings ")
+            if stringsOption== '-1':
+                creatingInfixes=False
+            else:
+                strings.append(stringsOption)
+    else:
+        print("done")
+        running = False
