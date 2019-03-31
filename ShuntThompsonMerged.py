@@ -95,31 +95,33 @@ def compile(pofix):
             nfastack.append(newnfa)
         #Zero or One(accept if there is only 0 or 1 of this character)
         elif c == "?":
+            #pop 1 NFA
             nfa1 = nfastack.pop()
-
+            #create states
             initial = state()
             accept = state()
-           #join the new initial state to nfa1's initial state and the new accept state.
+            
             initial.edge1 = nfa1.initial
             initial.edge2 = accept
-            #dont join the old accept state to the new accept state and nfa1's initial state as thats how it loops.
-            #push
+           
+            nfa1.accept.edge1 = accept
+
             newnfa = nfa(initial, accept)
             nfastack.append(newnfa)
         #One or more(accept if there is atleast 1 of this character)
         elif c == "+":
+            #pop 1 NFA
             nfa1 = nfastack.pop()
-
+            #create states
             initial = state()
             accept = state()
 
             initial.edge1 = nfa1.initial
-            initial.edge2 = accept
 
             nfa1.accept.edge1 = nfa1.initial
             nfa1.accept.edge2 = accept
-
-            newnfa= nfa(nfa1.initial,accept)
+            #push 
+            newnfa= nfa(initial,accept)
             nfastack.append(newnfa)
         else:
             #create new states
